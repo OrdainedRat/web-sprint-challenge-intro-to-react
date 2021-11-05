@@ -24,22 +24,45 @@ const App = () => {
 
  }, [])
 
-
+ const AppDiv = styled.div`
+  .App{
+    height: 800px;
+  }
+  h1{
+    text-align: center;
+    font-size: 3rem;
+  }
+  .characters{
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    justify-content: space-between;
+    width: 70%;
+    margin: auto;
+    height: fit-content;
+  }
+  .characters div{
+    border: solid black 5px;
+    border-radius: 6%;
+    margin: 10px 0;
+    border-color: rgba(220, 220, 220, 1);
+  }
+ `
   // Fetch characters from the API in an effect hook. Remember, anytime you have a 
   // side effect in a component, you want to think about which state and/or props it should
   // sync up with, if any.
 
   return (
-    <div className="App">
+    <AppDiv>
       <h1 className="Header">Characters</h1>
       <div className='characters'>
         {characters.map(item => (
-        <Characters character={item.name}/>)
+        <Characters character={item.name} year={item.birth_year}/>)
           
           )}
       </div>
   
-    </div>
+    </AppDiv>
 
   
   );
